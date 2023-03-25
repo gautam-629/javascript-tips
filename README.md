@@ -23,20 +23,7 @@ const foodMap={
   }
   console.log(getPrice('Burger'))
   ```
-## 2.Object into array value and key
-```javascript
-const foodMap={
-    Burger:200,
-    pizza:500,
-    joice:300
-}
-const keys= Object.keys(foodMap); // Convert the Object to an array of key
-const values= Object.values(foodMap);
-let entries=Object.entries(foodMap); // Convert the object to an array of key-value pairs
-for(let [key,value] of entries){
-   console.log(`${key}: ${value}`);
-}
-```
+
 ## 3.avoid multile OR || OR
 ``` javascript
 const canAccess=(userRole)=>{
@@ -100,4 +87,12 @@ function waitForSevenSecond(){
 }
 waitForSevenSecond()
 console.log("Binod");
+```
+## 7. Convert to Array
+```javascript
+function testOne(){
+   let args=Array.from(arguments) //Array.form() method
+   console.log(args)
+}
+testOne(1,2,3,4,5,3,5)
 ```
