@@ -96,3 +96,60 @@ function testOne(){
 }
 testOne(1,2,3,4,5,3,5)
 ```
+## 8. Question
+``` javascript
+function show(){
+    for(var i=0;i<4;i++){
+        setTimeout(()=>{
+           console.log(i)
+        },2000)
+    }
+}
+show() // output 4 4 4 4
+```
+> **Explain**
+1. The show() function is called.
+2. The for loop initializes i to 0.
+3. Inside the loop, the setTimeout function is called for each iteration.
+4. The callbacks are scheduled to execute after a 2-second delay.
+5. The loop continues, incrementing i to 1, 2, and 3.
+6. The loop ends when i becomes 4.
+7. After 2 seconds, the first callback is executed and prints 4 to the console.
+8. Similarly, after 2 seconds, the remaining callbacks are executed and also print 4 to the console.
+
+``` javascript
+// solution
+function show() {
+  for (var i = 0; i < 4; i++) {
+    (function (num) {
+      setTimeout(function () {
+        console.log(num);
+      }, 2000);
+    })(i);
+  }
+}
+
+show(); 
+```
+## 9.Question
+```javascript
+function show(){
+    for(let i=0;i<4;i++){
+        setTimeout(()=>{
+           console.log(i)
+        },2000)
+    }
+}
+show(); //output 0,1,2,3
+
+```
+> **Explain**
+1. The show() function is called.
+2. The for loop initializes i to 0 and checks the condition i < 4.
+3. Inside the loop, the setTimeout function is called for each iteration.
+4. The callbacks are scheduled to execute after a 2-second delay.
+5. The loop continues, incrementing i to 1, 2, and 3.
+6. For each iteration, the callback captures the value of i at that specific iteration because let creates a new block scope.
+7. After 2 seconds, the first callback is executed and prints 0 to the console.
+8. Similarly, after 2 seconds, the remaining callbacks are executed and print 1, 2, and 3 to the console, respectively.
+
